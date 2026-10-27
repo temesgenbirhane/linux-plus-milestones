@@ -2,8 +2,8 @@
 # ============================================================
 # Linux+ Milestone 2 — Server Deployment Script
 #
-# Student:     [YOUR FULL NAME]
-# Date:        [DATE]
+# Student:     [Temesgen Tesfahunegn]
+# Date:        [10/28/2026]
 # Environment: Ubuntu 22.04 container (Docker)
 # Scenario:    Deploy and harden a web server role
 #
@@ -76,6 +76,13 @@ log "============================================================"
 #       Key flags: -r (system account), -s (shell), -d (home directory), -m (create home)
 
 # YOUR CODE HERE:
+if id webservice &> /dev/null; then
+    echo "user 'webservice' already exists, skipping creation."
+else 
+    useradd -r -s /usr/sbin/nologin -d /var/lib/webservice -m webservice
+    echo "user 'webservice' created successfully."
+fi
+
 
 
 log "Section 1 complete"
